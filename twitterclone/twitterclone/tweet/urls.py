@@ -1,13 +1,13 @@
 from django.urls import path
-from twitterclone.authentication import views
+from twitterclone.tweet import views
 from django.conf.urls.static import static
 from django.conf import settings
 
 
 urlpatterns = [
-    path('login/', views.loginview, name='login_view'),
-    path('logout/', views.logoutview, name='logout_view'),
-    path('createuser/', views.createuser, name='create_user_view')
+    path('', views.viewmainpage, name='homepage'),
+    path('addtweet/', views.maketweet, name='make_tweet_view'),
+    path('view_tweet/<int:id>/', views.viewtweet, name='view_tweet_view')
 ]
 
 if settings.DEBUG:

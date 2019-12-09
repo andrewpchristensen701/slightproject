@@ -1,13 +1,11 @@
 from django.urls import path
-from twitterclone.authentication import views
+from twitterclone.notification import views
 from django.conf.urls.static import static
 from django.conf import settings
 
-
 urlpatterns = [
-    path('login/', views.loginview, name='login_view'),
-    path('logout/', views.logoutview, name='logout_view'),
-    path('createuser/', views.createuser, name='create_user_view')
+    path('notification/<int:id>/', views.notificationpage,
+         name='notify_view'),
 ]
 
 if settings.DEBUG:

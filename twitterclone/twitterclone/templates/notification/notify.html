@@ -1,0 +1,14 @@
+{% load static %}
+<link rel='stylesheet' href='../../static/styles.css'>
+
+<a href='/'><button class='buttonstyle'>Home</button></a>
+<a href='/addtweet/'><button class='buttonstyle'>Tweet!</button></a>
+<a href='/profile/{{user.twitteruser.id}}'><button class='buttonstyle'>My Profile</button></a>
+<div id='notcontent'>
+    <h3>Your notification:</h3>
+    {% for item in data %}
+    <div class='areas'>
+        {{item}}
+    </div>
+    {% endfor %}
+</div>

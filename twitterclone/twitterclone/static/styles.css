@@ -1,0 +1,100 @@
+
+body{
+    background: rgb(223, 188, 142);
+	-webkit-animation: color-change-5x 16s linear infinite alternate both;
+	        animation: color-change-5x 16s linear infinite alternate both;
+}
+
+.areas {
+    width: 50%;
+    background: rgb(154, 154, 213);
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+
+}
+
+.areastweet {
+    background: rgb(157, 157, 216);
+    border: 2px solid black;
+}
+
+.tweetareasprofile{
+    background: rgb(157, 157, 216);
+    border: 2px solid black;
+    margin: 10px;
+    padding: 20px;
+    width: 70%;
+
+}
+
+.buttonstyle{
+    height: 35px;
+    width: 20%;
+    font-size: 22px;
+    font-weight: bolder;
+    border: 1px solid black;
+    box-shadow: 3px 4px;
+    margin: 20px;
+}
+.logoutstyle{
+    height: 25px;
+    width: 10%;
+    font-size: 12px;
+    font-weight: bolder;
+    border: 1px solid black;
+    box-shadow: 3px 4px;
+    margin: 20px;
+}
+
+.logstyle{
+    height: 25px;
+    width: 100%;
+    font-size: 12px;
+    font-weight: bolder;
+    border: 1px solid black;
+    box-shadow: 3px 4px;
+    margin: 20px;
+}
+
+#contenthome, #contenthomeprofile, #notcontent, #contenttweet {
+    margin: 5%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: 10%
+}
+
+.userspot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    padding: 10px;
+    width: 35vh;
+    background: rgb(179, 157, 129)
+}
+
+#content, #profilecontent {
+    column-count: 2;
+    display: flex;
+    align-items: space-between;
+}
+
+.userbox{
+    display: flex;
+    flex-direction: column;
+}
+
+.timespot{
+    float: right;
+}
+
+.tweetareas {
+    width: 70%;
+    background: rgb(154, 154, 213);
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+}

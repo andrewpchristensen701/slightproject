@@ -1,0 +1,19 @@
+{% load static %}
+<link rel='stylesheet' href='../static/styles.css'>
+<div class='content'>
+    <br>
+    <h2>Welcome to Not Twitter!</h2>
+    <br>
+    <div class='areas'>
+        <h4>Sign In:</h4>
+        <form action='' method='post'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type='submit' value='Submit' class='logoutstyle'>
+        </form>
+    </div>
+    <div>
+        <h5>Don't have an account?</h5>
+        <a href='/createuser/'><button class='logoutstyle'>Sign Up!</button></a>
+    </div>
+</div>
