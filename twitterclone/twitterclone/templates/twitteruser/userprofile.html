@@ -1,37 +1,47 @@
-{% load static %}
-<link rel='stylesheet' href='../../static/styles.css'>
-<a href='/'><button class='buttonstyle'>Home</button></a>
-<a href='/addtweet/'><button class='buttonstyle'>Tweet!</button></a>
 
-<div id='profilecontent'>
-    <div class='userbox'>
-        <div class='userspot'>
-            <h2>{{twitteruser.username}}</h2>
-            <h3><a href='/profile/{{twitteruser.id}}'>@{{twitteruser.username}}</a></h3>
-            <p>Bio: {{twitteruser.bio}}</p>
-            <div>tweet: {{user.twitteruser.tweetcount}}</div>
-            <div>Following: {{user.twitteruser.follow.count}}</div>
-        </div>
-        <div>
-            <a href='/follow/{{twitteruser.id}}'><button class='logstyle'>Follow?</button></a>
-            <a href='/unfollow/{{twitteruser.id}}'><button class='logstyle'>Unfollow?</button></a>
-        </div>
-    </div>
-    <div id='contenthomeprofile'>
-        <div class='tweetpot'>
+<!DOCTYPE html>
+<html lang='en'>
+    <a href='/'>Mainpage</a>
+    <a href='/'>Notifications</a>
+    
+    
+    <a href='/'></a>
+    <h1>{{twitteruser}}</h1>
+    <h2>following {{number_following}}</h2>
+    <h3>Made tweets {{ tweet_number }}</h3>
+    <ul>
+        {%for tweet in tweets %}
+        <li>
+            {{tweet.post_date}}
+            <a href='/tweet/{{tweet.id}}'>
+            {{tweet}}
+        </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% if not is_my_user_page %}
+        {% if is_followed %}
+            <form name ='unfollow' method='POST'>
+            <a href='/unfollow/{{twitteruser.id}}'>Unfollow</button></a>
+        {% else %}
+            <a href='/follow/{{twitteruser.id}}'>Follow</button></a>
+        {% endif %}
+        <input type='hidden' name=rule value='unfollow'/>
+        <input type='hidden' name='id' value='{{user.id}}'/>
+        <input type='submit' value='Unfollow'/>
 
-            <h4>@{{twitteruser.username}} tweet:</h4>
-            {% for item in tweet %}
-            <div class='tweetareasprofile'>
-                <div>
-                    <div><a href='/profile/{{item.user.id}}'>@{{item.user}}</a></div>
-                    <br>
-                    <div>{{item.message}}</div>
-                    <br>
-                    <div class='timespot'><a href='/view_tweet/{{item.id}}'>{{item.post_time}}</a></div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
+        {% else %}
+
+        <form name='follow' method='POST'>
+            {% csrf_token %}
+            <input type='hidden' name='rule' value='follow'/>
+            <input type='hidden' name='id' value='{{user.id}}'/>
+            <input type='submit' value='Follow' />
+        </form>
+        
+    {% endif %}
+    
+
+<a href='/'>home</a>
+
+    
