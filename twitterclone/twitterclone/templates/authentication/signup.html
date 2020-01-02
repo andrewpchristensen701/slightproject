@@ -1,14 +1,18 @@
-{% load static %}
-<link rel='stylesheet' href='../static/styles.css'>
-<a href='/login/'><button class='buttonstyle'>Back</button></a>
-<div class='content'>
-    <br>
-    <br>
-    <div class='areas'>
-        <form action='' method='post'>
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type='submit' value='Submit' class='logoutstyle'>
-        </form>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>New user sign up</title>
+    <form action="" method="post">
+        {% csrf_token %}
+        <a href='/logout/'>Logout</a>
+        {{ form }}
+        
+        <input type="submit" value="Submit" />
+    </form>
+    
+</html>

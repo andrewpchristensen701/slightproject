@@ -1,36 +1,26 @@
-{% load static %}
-<link rel='stylesheet' href='../../static/styles.css'>
+<div>
+    <a><button>Home</button></a>
 
-<a href='/'><button class='buttonstyle'>Home</button></a>
-<a href='/addtweet/'><button class='buttonstyle'>Tweet!</button></a>
-<a href='/notification/{{user.twitteruser.id}}'><button class='buttonstyle'>notification:
-        {{notif}}
-    </button></a>
-<a href='/profile/{{user.twitteruser.id}}'><button class='buttonstyle'>My Profile</button></a>
+<a href='/maketweets/'>Post Tweet</a>
+<a href='/login/'>Login</a>
+<a href='/logout/'>Logout</a>
+<a href= '/notifications/'>User Notifications</a>
+<a href= 'signup/'>Register</a>
+<a href= '/user/{{user.twitteruser.id}}/'>User profile</a>
+</div>
+<div>
+<h1> {{user}}</h1>
+</div>
+<div>
+    <ul>
+ 
+{% for item in data %}
 
-<div id='content'>
-    <div class='userbox'>
-        <div class='userspot'>
-            <h4>Welcome Back!</h4>
-            <h2><a href='/profile/{{user.twitteruser.id}}'>@{{user}}</a></h2>
-            <div>tweet: {{user.twitteruser.tweetcount}}</div>
-            <div>Following: {{user.twitteruser.follow.count}}</div>
-            <br>
-        </div>
-        <a href='/logout/'><button class='logstyle'>Logout</button></a>
-    </div>
-    <div id='contenthome'>
-        <h4>Tweet feed:</h4>
-        {% for item in tweet %}
-        <div class='tweetareas'>
-            <div>
-                <div><a href='/profile/{{item.user.id}}'>@{{item.user}}</a></div>
-                <br>
-                <div>{{item.message}}</div>
-                <br>
-                <div class='timespot'><a href='/view_tweet/{{item.id}}'>{{item.post_time}}</a></div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+<li><a href='/user/{{item.tweet_author.id}}/'>{{item.tweet_author}}</a></li>
+<li>{{item.body}}</li>
+</li><a href='/tweet/{{item.id}}/'>{{item.post_date}}</a></li>
+
+
+{% endfor %}
+</ul>
 </div>
